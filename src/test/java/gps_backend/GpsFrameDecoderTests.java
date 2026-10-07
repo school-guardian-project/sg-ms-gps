@@ -5,7 +5,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-import gps_backend.tcp.protocol.GpsFrameDecoder;
+import gps_backend.adapters.protocol.GpsFrameDecoder;
 
 class GpsFrameDecoderTests {
 

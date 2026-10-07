@@ -11,12 +11,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import gps_backend.model.GpsLbsData;
-import gps_backend.model.GpsLocation;
-import gps_backend.model.GpsTimestampStatus;
-import gps_backend.parser.GpsLbsParser;
-import gps_backend.parser.GpsPacketParser;
-import gps_backend.tcp.GpsTcpServer;
+import gps_backend.domain.model.GpsLbsData;
+import gps_backend.domain.model.GpsLocation;
+import gps_backend.domain.model.GpsTimestampStatus;
+import gps_backend.adapters.protocol.GpsLbsParser;
+import gps_backend.adapters.protocol.GpsPacketParser;
+import gps_backend.adapters.in.tcp.GpsTcpServer;
 
 @SpringBootTest
 class GpsBackendApplicationTests {
