@@ -1,0 +1,16 @@
+services:
+  ms-gps:
+    container_name: ms-gps
+    image: ms-gps.api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8084:8080"
+      - "8842:8842"
+    networks:
+      - sg-services-network
+
+networks:
+  sg-services-network:
+    external: true
