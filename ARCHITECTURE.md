@@ -5,7 +5,7 @@ GPS microservice for Guardian Escolar: receives VT03F device packets over TCP, d
 - **Spring Boot:** 4.1.1
 - **Java:** 21
 - **Build:** Maven
-- **Document last updated:** 2025-07-14
+- **Document last updated:** 2026-10-15
 
 ---
 
@@ -811,7 +811,7 @@ All controllers share base path `/api/gps`. HTTP port is `8080`.
   {
     "imei": "355468590730586",
     "gpsStatus": true,
-    "lastConnection": "2025-07-14T20:15:00Z"
+    "lastConnection": "2026-10-15T20:15:00Z"
   }
   ```
 
@@ -852,9 +852,9 @@ All controllers share base path `/api/gps`. HTTP port is `8080`.
     "longitude": -75.307000,
     "speed": 19.5,
     "course": 20.0,
-    "dateTime": "2025-07-14T20:15:00Z",
-    "gpsDateTime": "2025-07-14T20:15:00Z",
-    "receivedAt": "2025-07-14T20:15:01Z",
+    "dateTime": "2026-10-15T20:15:00Z",
+    "gpsDateTime": "2026-10-15T20:15:00Z",
+    "receivedAt": "2026-10-15T20:15:01Z",
     "timestampStatus": "VALID",
     "status": "ACTIVE",
     "positionType": "REAL_TIME"
@@ -987,7 +987,7 @@ Moving this value to `application.properties` is listed in [Section 30 — Futur
 
 ## 25. Docker
 
-Both files exist at the project root but are **not tracked by git** (confirmed by prior analysis).
+Both files exist at the project root and are tracked by git.
 
 ### Dockerfile
 
@@ -1040,7 +1040,7 @@ networks:
 
 The `sg-services-network` is declared as external — it must be created separately before running `docker compose up`.
 
-> Both `Dockerfile` and `docker-compose.yml` are untracked in git. They will not be included in a `git clone` of the repository until explicitly added and committed.
+> Both `Dockerfile` and `docker-compose.yml` are tracked in git and included in the repository.
 
 ---
 
