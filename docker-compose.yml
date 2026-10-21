@@ -6,7 +6,15 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080"
+      # HTTP API. Kong reaches this service as http://ms-gps:8080 over the
+      # Docker network and terminates TLS itself, so the mapping below is only
+      # for local debugging.
+      - "127.0.0.1:8080:8080"
+      # GPS device server. Devices speak raw TCP from outside the host, so
+      # Kong cannot proxy it and the port has to be published on every
+      # interface. Without this mapping the listener stays alive inside the
+      # container but no device can ever reach it.
+      - "8842:8842"
     networks:
       - sg-services-network
 
