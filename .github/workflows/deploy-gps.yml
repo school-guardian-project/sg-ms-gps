@@ -12,9 +12,16 @@ permissions:
 
 jobs:
   call-java-workflow:
+    # NOTE: this references the reusable workflow at @main, and the extra_ports
+    # input below only exists once school-guardian-project/.github#1 has merged.
+    # Until then this job fails with "Invalid input, extra_ports is not defined".
     uses: school-guardian-project/.github/.github/workflows/deploy-java.yml@main
     with:
       dockerfile_path: 'Dockerfile'
       app_name: 'ms-gps'
       host_port: 8080
+      # Kong proxies the HTTP API as http://ms-gps:8080 over the Docker network,
+      # so only the GPS device server needs a host mapping. Devices speak raw
+      # TCP from outside the host, so 8842 cannot be proxied by Kong.
+      extra_ports: '-p 127.0.0.1:8080:8080 -p 8842:8842'
     secrets: inherit
