@@ -44,7 +44,46 @@ The service connects to the shared Docker network `sg-services-network`. When Ko
 
 `http://ms-gps:8080`
 
-The public API path depends on the Kong route configuration.
+The inspected primary gateway exposes `/api/gps` without stripping that prefix.
+It requires JWT authentication. This does not establish which gateway revision is
+deployed; the separate gateway checkout has its own revision.
+
+### Verified HTTP interface
+
+| Method | Path | Successful response |
+|---|---|---|
+| GET | `/api/gps/devices/{imei}` | Device with `imei`, `gpsStatus`, `lastConnection`; empty body if unknown |
+| GET | `/api/gps/devices/{imei}/connected` | Boolean; `false` if unknown |
+| GET | `/api/gps/devices/{imei}/location` | Latest `GpsLocation`; empty body if unknown |
+| POST | `/api/gps/test/{imei}` | Stores and returns a fixed synthetic test location |
+
+These are the routes of `GpsDeviceController`, `GpsLocationController` and
+`GpsTestController`. A null return is not an implemented 404 response. There is
+no REST health, registration, status-update or location-history controller.
+The test endpoint is not development-gated in the current implementation; do
+not invoke it against real devices to check availability.
+
+For a read-only request through the local gateway (replace the IMEI and use
+your own access token):
+
+```bash
+curl -H "Authorization: Bearer $ACCESS_TOKEN" \
+  http://localhost:8000/api/gps/devices/TEST_IMEI/location
+```
+
+`GpsLocation` contains `imei`, numeric `latitude`, `longitude`, `speed`, `course`,
+and nullable time/status fields: `dateTime`, `gpsDateTime`, `receivedAt`,
+`timestampStatus`, `status`, `positionType`. Timestamp status is `VALID`, `STALE`
+or `INVALID`; position type is `UNKNOWN`, `REAL_TIME` or `RE_UPLOAD`.
+The exact optional values depend on the received message.
+
+The mobile `GpsService` requests this location path using a URL-encoded IMEI.
+The web bus form instead calls `/fleet/api/gps-devices`, which is fleet's
+database inventory API: its UUID identifies the inventory record, not a GPS
+tracking request. Do not substitute that UUID for the tracking IMEI.
+
+Source comparison was static. Java controller execution, native-device behavior,
+and deployed Kong forwarding still require runtime verification.
 
 ## GPS Data Handling
 
@@ -119,9 +158,8 @@ The TCP listener configuration and supported GPS message format must be verified
 - GPS locations are stored in memory rather than persisted in SQL Server.
 - Location data is lost when the service restarts.
 - Historical GPS tracking is not persisted.
-- Exact REST endpoints and response formats must be verified against the controllers and DTOs.
+- The HTTP surface above is source-verified, not a deployed end-to-end guarantee.
 - GPS device connectivity depends on the correct server address, TCP port and network configuration.
 - The presence of database dependencies does not imply active database persistence.
-
 
 
