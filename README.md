@@ -1,6 +1,6 @@
-# sg-ms-gps
+# Servicio GPS
 
-GPS tracking microservice for School Guardian, receiving tracking data from GPS devices installed in school transportation vehicles and providing location information through an HTTP REST API.
+GPS tracking microservice for School Guardian. Receives tracking data from GPS devices installed in school transportation vehicles and provides location information through an HTTP REST API. Built with Java 21 and Maven.
 
 ## Getting Started
 
@@ -10,17 +10,25 @@ These instructions will give you a copy of the project up and running on your lo
 
 Requirements for the software and other tools to build, test and push:
 
-- .NET SDK
+- Java 21
+- Maven 3.9
 - Docker
 - Docker Compose
+- The `sg-services-network` Docker network (external, shared across services)
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development environment running.
 
-Start the service with Docker Compose:
+Create the external network if it does not exist:
+
+    docker network create sg-services-network
+
+Start the service:
 
     docker compose up -d
+
+The HTTP API listens on port 8080 (mapped to `127.0.0.1:8080` for local debugging). The GPS device server listens on TCP port 8842, published on every interface so devices can reach it. Kong terminates TLS and reaches the service as `http://ms-gps:8080` over the Docker network.
 
 ## Running the tests
 
@@ -28,24 +36,25 @@ Explain how to run the automated tests for this system.
 
 ### Sample Tests
 
-Explain what these tests test and why.
+Tests are executed against the test service that runs in Docker Compose for each service.
 
 ### Style test
 
-Checks if the best practices and the right coding style has been used.
+Checks if the best practices and the right coding style has been used, validated through the test service in Docker Compose.
 
 ## Deployment
 
-Add additional notes to deploy this on a live system.
+Deployment is performed via GitHub Actions to an AWS EC2 instance.
 
 ## Built With
 
-- .NET
+- Java 21
+- Maven 3.9
 - Docker Compose — Local development stack
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Please read [CONTRIBUTING.md](https://github.com/school-guardian-project/.github/blob/main/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## License
 
