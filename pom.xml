@@ -44,6 +44,18 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Kafka -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
+        <!-- Jackson para serialización -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
         <!-- Generacion de getters y setters -->
         <dependency>
             <groupId>org.projectlombok</groupId>

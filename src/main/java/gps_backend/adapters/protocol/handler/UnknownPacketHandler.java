@@ -6,6 +6,11 @@ import org.springframework.stereotype.Component;
 
 import gps_backend.adapters.protocol.GpsPacketHandler;
 
+/**
+ * Manejador de paquetes desconocidos. Si un paquete no coincide con ningún protocolo conocido,
+ * este manejador lo captura, imprime el header hexadecimal para debugging, y descarta el paquete
+ * sin procesarlo. Ayuda a identificar protocolos no soportados.
+ */
 @Component
 public class UnknownPacketHandler implements GpsPacketHandler {
 

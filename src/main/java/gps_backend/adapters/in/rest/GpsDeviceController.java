@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 import gps_backend.domain.model.GpsDevice;
 import gps_backend.application.service.GpsDeviceApplicationService;
 
+/**
+ * Controlador REST que expone endpoints para consultar información de dispositivos GPS.
+ * Permite obtener el estado de un dispositivo (IMEI, estado GPS, última conexión) y verificar si está conectado.
+ * Típicamente utilizado por el frontend o dashboards para mostrar el estado de la flota de vehículos.
+ */
 @RestController
 @RequestMapping("/api/gps")
 public class GpsDeviceController {

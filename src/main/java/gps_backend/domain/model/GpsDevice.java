@@ -5,6 +5,11 @@ import java.time.Instant;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Representa el estado de un dispositivo GPS conectado al sistema. Mantiene el IMEI único,
+ * estado de conexión (activo/inactivo) y la última marca de tiempo de conexión.
+ * Se actualiza cada vez que el dispositivo se conecta o envía un heartbeat.
+ */
 @Getter
 @Setter
 public class GpsDevice {

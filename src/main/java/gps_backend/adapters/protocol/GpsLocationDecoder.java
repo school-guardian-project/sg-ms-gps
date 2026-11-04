@@ -9,6 +9,11 @@ import gps_backend.domain.model.GpsLocation;
 import gps_backend.domain.model.GpsTimestampStatus;
 import gps_backend.domain.model.PositionType;
 
+/**
+ * Decodificador de ubicaciones GPS (protocolo 0x31). Extrae coordenadas, velocidad, curso,
+ * cantidad de satélites y validez del timestamp. Convierte valores binarios (bytes) a coordenadas decimales
+ * y crea un objeto GpsLocation que se puede guardar o publicar.
+ */
 @Component
 public class GpsLocationDecoder {
 

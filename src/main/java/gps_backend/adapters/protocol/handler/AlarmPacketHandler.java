@@ -9,6 +9,11 @@ import gps_backend.adapters.protocol.GpsPacketHandler;
 import gps_backend.adapters.protocol.GpsPacketParser;
 import gps_backend.adapters.protocol.ack.GpsAckService;
 
+/**
+ * Manejador de paquetes de alarma (protocolo 0x32). Procesa eventos especiales detectados por el GPS
+ * como robo, salida de zona, velocidad excesiva, etc. Imprime los detalles para logging y análisis.
+ * Responde con ACK al dispositivo.
+ */
 @Component
 public class AlarmPacketHandler implements GpsPacketHandler {
 

@@ -13,6 +13,11 @@ import gps_backend.adapters.protocol.handler.LocationPacketHandler;
 import gps_backend.adapters.protocol.handler.LoginPacketHandler;
 import gps_backend.adapters.protocol.handler.UnknownPacketHandler;
 
+/**
+ * Enrutador de paquetes GPS que identifica el tipo de protocolo (0x78 0x78 estándar o 0x79 0x79 legado)
+ * y delega el procesamiento al manejador específico (login, heartbeat, ubicación, alarma, LBS, comando, etc.).
+ * Determina qué handler procesa cada paquete según su byte de protocolo en la posición 3.
+ */
 @Component
 public class GpsPacketRouter {
 

@@ -13,6 +13,11 @@ import gps_backend.adapters.protocol.ack.GpsAckService;
 import gps_backend.application.service.GpsDeviceApplicationService;
 import gps_backend.application.service.GpsLocationApplicationService;
 
+/**
+ * Servidor TCP que escucha en el puerto 8842 y acepta conexiones de dispositivos GPS.
+ * Crea un thread para cada cliente conectado. Inicia automáticamente al arrancar la aplicación
+ * y mantiene activo el servidor mientras la aplicación esté en ejecución.
+ */
 @Component
 public class GpsTcpServer {
 

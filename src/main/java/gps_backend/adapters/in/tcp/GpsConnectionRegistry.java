@@ -8,6 +8,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Registro de todas las conexiones TCP activas, indexadas por IMEI. Permite registrar,
+ * buscar y enviar comandos a dispositivos GPS específicos. Mantiene las sockets abiertas
+ * para comunicación bidireccional (envío de comandos, recepción de datos).
+ */
 @Component
 public class GpsConnectionRegistry {
 

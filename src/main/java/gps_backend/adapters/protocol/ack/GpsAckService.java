@@ -6,6 +6,11 @@ import java.net.Socket;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Servicio de reconocimiento (ACK) para el protocolo GPS. Construye paquetes de ACK que confirman
+ * la recepción de paquetes. Calcula CRC, incluye el protocolo y número de serie, y envía la respuesta
+ * al dispositivo GPS a través del socket TCP.
+ */
 @Component
 public class GpsAckService {
 
