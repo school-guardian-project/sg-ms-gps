@@ -5,6 +5,11 @@ import java.time.OffsetDateTime;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Decodificador de alarmas GPS (protocolo 0x32). Extrae la fecha/hora de alarma del paquete
+ * y determina su validez comparando con la hora de servidor. Las alarmas indican eventos especiales
+ * detectados por el GPS (robo, salida de zona, etc.).
+ */
 @Component
 public class GpsAlarmDecoder {
 

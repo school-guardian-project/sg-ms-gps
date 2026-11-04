@@ -11,6 +11,11 @@ import org.springframework.stereotype.Component;
 import gps_backend.domain.model.GpsLbsData;
 import gps_backend.domain.model.GpsTimestampStatus;
 
+/**
+ * Parseador de datos LBS (Location Based Services, protocolo 0x50).
+ * Extrae información de torres celulares (MCC, MNC, LAC, Cell ID, señal) que complementan
+ * la localización GPS. Útil cuando el GPS no tiene señal satelital suficiente.
+ */
 @Component
 public class GpsLbsParser {
 

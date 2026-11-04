@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 import gps_backend.domain.model.GpsLocation;
 import gps_backend.application.service.GpsLocationApplicationService;
 
+/**
+ * Controlador REST que expone endpoints para consultar ubicaciones GPS.
+ * Permite obtener la última posición registrada de un dispositivo específico (por IMEI).
+ * Utilizado por clientes para ver dónde está un vehículo en tiempo real.
+ */
 @RestController
 @RequestMapping("/api/gps")
 public class GpsLocationController {

@@ -6,6 +6,11 @@ import java.time.OffsetDateTime;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Almacena datos de localización basados en señales de torres celulares (LBS: Location Based Services).
+ * Se extrae del paquete de protocolo 0x50 y contiene información de red móvil (MCC, MNC, LAC, Cell ID)
+ * que complementan la localización GPS cuando esta no está disponible.
+ */
 @Getter
 @Setter
 public class GpsLbsData {

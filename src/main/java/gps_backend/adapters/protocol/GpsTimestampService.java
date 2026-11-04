@@ -9,6 +9,11 @@ import org.springframework.stereotype.Component;
 
 import gps_backend.domain.model.GpsTimestampStatus;
 
+/**
+ * Servicio que determina la validez del timestamp GPS. Compara la fecha reportada por el GPS
+ * con la hora de servidor. Si la diferencia es mayor a 300 segundos (5 minutos), marca como STALE.
+ * También proporciona utilidades para formatear fechas en la zona horaria de Colombia.
+ */
 @Component
 public class GpsTimestampService {
 

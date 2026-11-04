@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 
 import gps_backend.domain.model.GpsDevice;
 
+/**
+ * Servicio de aplicación que gestiona el ciclo de vida de los dispositivos GPS.
+ * Registra nuevos dispositivos, actualiza su estado de conexión y mantiene un registro de todos
+ * los GPS conectados. Almacena los dispositivos en memoria con información de IMEI y último heartbeat.
+ */
 @Service
 public class GpsDeviceApplicationService {
 

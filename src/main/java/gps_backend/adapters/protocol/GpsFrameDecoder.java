@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Decodificador de marcos de datos binarios GPS. Reconoce los patrones de encabezado (0x78 0x78 o 0x79 0x79),
+ * calcula la longitud del paquete, busca el pie (0x0D 0x0A), y extrae los marcos completos.
+ * Mantiene un buffer de datos pendientes para manejar streams continuos.
+ */
 public class GpsFrameDecoder {
 
     private static final int FRAME_HEADER_SIZE = 4;

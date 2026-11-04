@@ -5,6 +5,10 @@ import java.time.ZoneOffset;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Parseador de fechas GPS. Convierte 6 bytes del formato GPS (YY MM DD HH MI SS codificados en BCD)
+ * a OffsetDateTime de Java. Valida que los valores estén en rango y lanza excepciones para datos inválidos.
+ */
 @Component
 public class GpsDateParser {
 

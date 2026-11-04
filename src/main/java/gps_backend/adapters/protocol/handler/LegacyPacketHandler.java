@@ -6,6 +6,11 @@ import org.springframework.stereotype.Component;
 
 import gps_backend.adapters.protocol.GpsPacketHandler;
 
+/**
+ * Manejador de paquetes legacy (protocolo 0x79 0x79). Maneja dispositivos GPS más antiguos con
+ * formato de protocolo diferente. Detecta el tipo de paquete y lo procesa según su estructura.
+ * Permite compatibilidad hacia atrás con hardware antiguo.
+ */
 @Component
 public class LegacyPacketHandler implements GpsPacketHandler {
 

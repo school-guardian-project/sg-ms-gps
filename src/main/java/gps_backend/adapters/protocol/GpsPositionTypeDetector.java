@@ -4,6 +4,11 @@ import org.springframework.stereotype.Component;
 
 import gps_backend.domain.model.PositionType;
 
+/**
+ * Detector del tipo de posición GPS: REAL_TIME vs RE_UPLOAD. Examina la estructura del paquete
+ * (longitud, headers, footers) y un byte específico de extensión para determinar si es una
+ * ubicación actual o datos históricos reenviados por el dispositivo.
+ */
 @Component
 public class GpsPositionTypeDetector {
 

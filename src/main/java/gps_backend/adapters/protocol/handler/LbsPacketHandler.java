@@ -9,6 +9,11 @@ import gps_backend.adapters.protocol.GpsLbsParser;
 import gps_backend.adapters.protocol.GpsPacketHandler;
 import gps_backend.adapters.protocol.ack.GpsAckService;
 
+/**
+ * Manejador de paquetes LBS (protocolo 0x50). Procesa datos de localización basados en torres celulares
+ * que complementan la información GPS. Útil cuando el satélite no es accesible pero la red móvil sí.
+ * Extrae información de operador celular (MCC, MNC) e identificadores de celda.
+ */
 @Component
 public class LbsPacketHandler implements GpsPacketHandler {
 

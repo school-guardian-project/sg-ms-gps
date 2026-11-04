@@ -11,6 +11,11 @@ import gps_backend.adapters.protocol.ack.GpsAckService;
 import gps_backend.application.service.GpsLocationApplicationService;
 import gps_backend.domain.model.GpsLocation;
 
+/**
+ * Manejador de paquetes de ubicación (protocolo 0x31). Decodifica coordenadas, velocidad y curso.
+ * Guarda la ubicación en el servicio de localización y la publica a Kafka para otros servicios.
+ * Es el paquete más importante: contiene la posición actual del vehículo.
+ */
 @Component
 public class LocationPacketHandler implements GpsPacketHandler {
 

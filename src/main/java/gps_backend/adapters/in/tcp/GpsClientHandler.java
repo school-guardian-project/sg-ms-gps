@@ -10,6 +10,11 @@ import org.springframework.stereotype.Component;
 import gps_backend.adapters.protocol.GpsFrameDecoder;
 import gps_backend.adapters.protocol.GpsPacketRouter;
 
+/**
+ * Gestor individual de cada conexión TCP con un dispositivo GPS. Recibe datos del socket,
+ * los decodifica en frames binarios, y los enruta al manejador de protocolo correspondiente.
+ * Mantiene la conexión abierta hasta que el dispositivo se desconecta.
+ */
 @Component
 public class GpsClientHandler {
 

@@ -7,6 +7,11 @@ import org.springframework.stereotype.Component;
 import gps_backend.adapters.protocol.GpsPacketHandler;
 import gps_backend.adapters.protocol.ack.GpsAckService;
 
+/**
+ * Manejador de paquetes heartbeat (protocolo 0x13). Recibe pulsos periódicos del GPS para confirmar
+ * que está vivo y conectado. Responde con un ACK para confirmar recepción.
+ * Típicamente se envían cada pocos minutos para mantener la conexión activa.
+ */
 @Component
 public class HeartbeatPacketHandler implements GpsPacketHandler {
 

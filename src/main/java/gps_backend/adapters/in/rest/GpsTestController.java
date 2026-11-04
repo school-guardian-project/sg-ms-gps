@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import gps_backend.domain.model.GpsLocation;
 import gps_backend.application.service.GpsLocationApplicationService;
 
+/**
+ * Controlador REST de prueba que permite crear ubicaciones GPS simuladas.
+ * Útil para testing y demostración sin necesidad de dispositivos GPS reales.
+ * Genera un evento de ubicación que se propaga igual que si viniera de un dispositivo.
+ */
 @RestController
 @RequestMapping("/api/gps/test")
 public class GpsTestController {

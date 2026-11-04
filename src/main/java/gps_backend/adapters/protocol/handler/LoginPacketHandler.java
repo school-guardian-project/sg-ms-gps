@@ -8,6 +8,11 @@ import gps_backend.adapters.protocol.GpsPacketHandler;
 import gps_backend.adapters.protocol.ack.GpsAckService;
 import gps_backend.application.service.GpsDeviceApplicationService;
 
+/**
+ * Manejador de paquetes de login (protocolo 0x01). Extrae el IMEI del dispositivo GPS,
+ * lo registra en el sistema y envía un ACK. Este es el primer paquete que envía cada GPS
+ * cuando se conecta, permitiendo identificar y autorizar el dispositivo.
+ */
 @Component
 public class LoginPacketHandler implements GpsPacketHandler {
 

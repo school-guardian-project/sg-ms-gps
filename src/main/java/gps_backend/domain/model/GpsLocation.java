@@ -6,6 +6,11 @@ import java.time.OffsetDateTime;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Representa la ubicación actual de un dispositivo GPS. Almacena coordenadas (latitud, longitud),
+ * velocidad, dirección (curso) y marca de tiempo. Se crea cuando el GPS envía un paquete de
+ * localización (protocolo 0x31) y se persiste en memoria para posterior consulta o publicación a Kafka.
+ */
 @Getter
 @Setter
 public class GpsLocation {

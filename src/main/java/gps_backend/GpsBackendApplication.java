@@ -5,6 +5,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Punto de entrada principal de la aplicación GPS. Inicia el servidor TCP que escucha
+ * conexiones de dispositivos GPS físicos. La aplicación Spring Boot se ejecuta y
+ * automáticamente inicia el servidor de TCP en el puerto 8842.
+ */
 @SpringBootApplication
 public class GpsBackendApplication implements CommandLineRunner {
 

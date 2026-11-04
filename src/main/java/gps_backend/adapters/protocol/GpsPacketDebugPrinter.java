@@ -9,6 +9,11 @@ import org.springframework.stereotype.Component;
 import gps_backend.domain.model.GpsTimestampStatus;
 import gps_backend.domain.model.PositionType;
 
+/**
+ * Utilidad para imprimir información detallada de paquetes GPS (para debugging).
+ * Imprime ubicaciones decodificadas con coordenadas, velocidad, satélites y timestamp.
+ * También imprime alarmas con datos hexadecimales para análisis técnico.
+ */
 @Component
 public class GpsPacketDebugPrinter {
 

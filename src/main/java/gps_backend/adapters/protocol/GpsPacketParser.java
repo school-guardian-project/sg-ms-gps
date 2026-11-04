@@ -10,6 +10,11 @@ import org.springframework.stereotype.Component;
 import gps_backend.domain.model.GpsLocation;
 import gps_backend.domain.model.GpsTimestampStatus;
 
+/**
+ * Analizador de paquetes GPS que orquesta la decodificación de ubicaciones (0x31) y alarmas (0x32).
+ * Delega el trabajo de extracción de datos a decodificadores especializados y realiza operaciones comunes
+ * como parsing de fechas y determinación de validez de timestamp.
+ */
 @Component
 public class GpsPacketParser {
 
